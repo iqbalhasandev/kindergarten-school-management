@@ -74,70 +74,32 @@
                     <div class="nav-wrap">
                         <nav id="mainnav" class="mainnav st-2">
                             <ul class="menu">
-                                <li class="menu-item-has-children current-menu-item">
-                                    <a href="#">HOME</a>
+                                <li class="menu-item">
+                                    <a href="about.html">Home</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a>About</a>
                                     <ul class="sub-menu">
-                                        <li class="current-item"><a href="index.html">Home 01</a></li>
-                                        <li><a href="home2.html">Home 02</a></li>
+                                        <li class="inner"><a href="{{ route('home.teachers') }}">Teacher</a></li>
+                                        <li class="inner"><a href="{{ route('home.classes') }}">Classes</a></li>
+                                        <li class="inner"><a href="{{ route('home.events') }}">Events</a></li>
+
+
+                                        <li><a href="{{ route('home.academic-calendar') }}">Academic Calendar</a></li>
+                                        <li><a href="{{ route('home.testimonials') }}">testimonials</a></li>
+                                        <li><a href="{{ route('home.gallery') }}">gallery</a></li>
+                                        <li><a href="{{ route('home.pricing') }}">pricing</a></li>
+                                        <li><a href="{{ route('home.faq') }}">Faq</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="about.html">About</a>
+                                    <a href="{{ route('home.programs') }}">Programs</a>
                                 </li>
-                                <li class="menu-item-has-children">
-                                    <a>PAGES</a>
-                                    <ul class="sub-menu">
-                                        <li class="inner-menu-item"><a href="#">Teachers</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="teacher.html">Teacher</a></li>
-                                                <li><a href="teacher-details.html">Teachers Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="inner-menu-item"><a href="#">Classes</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="classes.html">Classes</a></li>
-                                                <li><a href="classe-details.html">Classes Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="inner-menu-item"><a href="#">Events</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="events.html">Event</a></li>
-                                                <li><a href="event2.html">Event 2</a></li>
-                                                <li><a href="event-details.html">Events Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="calendar.html">Academic Calendar</a></li>
-                                        <li><a href="testimonials.html">testimonials</a></li>
-                                        <li><a href="time-table.html">Time Table</a></li>
-                                        <li><a href="gallery.html">gallery</a></li>
-                                        <li><a href="pricing.html">pricing</a></li>
-                                        <li><a href="faq.html">Faq</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a>Programs</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="program.html">Program</a></li>
-                                        <li><a href="program-details.html">program details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a>BLOG</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-grid.html">blog grid</a></li>
-                                        <li><a href="blog-list.html">blog list</a></li>
-                                        <li><a href="blog-single.html">blog single</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a>SHOP</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="shop.html">Shop</a></li>
-                                        <li><a href="shop-details.html">Shop Details</a></li>
-                                    </ul>
+                                <li class="menu-item">
+                                    <a href="{{ route('home.blog') }}">BLOG</a>
                                 </li>
                                 <li class="inner">
-                                    <a href="contact.html">CONTACTS</a>
+                                    <a href="{{ route('home.contact') }}">CONTACTS</a>
                                 </li>
                             </ul>
                             <!-- /.menu -->
@@ -154,8 +116,8 @@
 
         <div class="inner-sidebar side-menu__block-inner fl-st-1">
             <div class="side-menu__top justify-content-end">
-                <a href="#" class="side-menu__toggler side-menu__close-btn"><img src="assets/images/common/close.png"
-                        alt="images"></a>
+                <a href="#" class="side-menu__toggler side-menu__close-btn"><img
+                        src="{{front_asset('images/common/close.png')}}" alt="images"></a>
             </div>
             <div class="wrap">
                 <div class="widget widget-quote">
@@ -173,132 +135,6 @@
                             Sit amet consectetur adipiscing elit sed do eiusmod tempor didunt ut labore et
                             dolore magna
                         </p>
-                    </div>
-                </div>
-
-                <div class="widget widget-search st-2">
-                    <h4 class="title-widget fl-ctm-1">Search<span class="ctm-inner"></span></h4>
-                    <div class="form-search-widget">
-                        <form action="#">
-                            <input type="text" placeholder="Search Here">
-                            <button><i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="widget widget-category st-2">
-                    <h4 class="title-widget fl-ctm-1">category<span class="ctm-inner"></span></h4>
-                    <div class="list-category">
-                        <ul>
-                            <li class="fx"><span class="st wd-ctm">Arts &amp; Drawing</span><span class="st">05</span>
-                            </li>
-                            <li class="fx"><span class="st wd-ctm">Basic Language</span><span class="st">02</span></li>
-                            <li class="fx"><span class="st wd-ctm">Graphics Design</span><span class="st">07</span></li>
-                            <li class="fx"><span class="st wd-ctm">Web Development</span><span class="st">04</span></li>
-                            <li class="fx"><span class="st wd-ctm">Lifestyle</span><span class="st">06</span></li>
-                            <li class="fx"><span class="st wd-ctm">GYM &amp; Gaming</span><span class="st">05</span>
-                            </li>
-                            <li class="fx"><span class="st wd-ctm">Events &amp; Party</span><span class="st">05</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="widget widget-news st-2">
-                    <h4 class="title-widget fl-ctm-1">recent news<span class="ctm-inner"></span></h4>
-                    <ul class="list-news">
-                        <li class="fx">
-                            <img src="{{front_asset('images/thumbnails/widget1.jpg')}}" alt="Image" class="feature">
-                            <ul class="box-content">
-                                <li>
-                                    <h6 class="title"><a href="blog-single.html">Bake Layers Accesilit
-                                            Testing Supporte</a></h6>
-                                </li>
-                                <li><a href="blog-single.html" class="fx meta-news clr-pri-4"><i
-                                            class="far fa-calendar-alt"></i><span class="f-rubik">25 nov
-                                            2021</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="fx">
-                            <img src="{{front_asset('images/thumbnails/widget2.jpg')}}" alt="Image" class="feature">
-                            <ul class="box-content">
-                                <li>
-                                    <h6 class="title"><a href="blog-single.html">Bake Layers Accesilit
-                                            Testin Supporte</a></h6>
-                                </li>
-                                <li><a href="blog-single.html" class="fx meta-news clr-pri-4"><i
-                                            class="far fa-calendar-alt"></i><span class="f-rubik">25 nov
-                                            2021</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="fx">
-                            <img src="{{front_asset('images/thumbnails/widget3.jpg')}}" alt="Image" class="feature">
-                            <ul class="box-content">
-                                <li>
-                                    <h6 class="title"><a href="blog-single.html">Bake Layers Accesilit
-                                            Testin Supporte</a></h6>
-                                </li>
-                                <li><a href="blog-single.html" class="fx meta-news clr-pri-4"><i
-                                            class="far fa-calendar-alt"></i><span class="f-rubik">25 nov
-                                            2021</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="fx">
-                            <img src="{{front_asset('images/thumbnails/widget4.jpg')}}" alt="Image" class="feature">
-                            <ul class="box-content">
-                                <li>
-                                    <h6 class="title"><a href="blog-single.html">Bake Layers Accesilit
-                                            Testin Supporte</a></h6>
-                                </li>
-                                <li><a href="blog-single.html" class="fx meta-news clr-pri-4"><i
-                                            class="far fa-calendar-alt"></i><span class="f-rubik">25 nov
-                                            2021</span></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="widget widget-tag st-2">
-                    <h4 class="title-widget fl-ctm-1">best tags<span class="ctm-inner"></span></h4>
-                    <ul class="list-tag">
-                        <li><a href="shop-details.html" class="f-rubik active">Technology</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">service</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">team</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">solutions</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">consultancy</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">It Company</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">agency</a></li>
-                    </ul>
-                </div>
-
-                <div class="widget widget-gallery st-2">
-                    <h4 class="title-widget fl-ctm-1">photo gallery<span class="ctm-inner"></span></h4>
-                    <div class="list-gallery fx">
-                        <div class="box-photo">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="{{front_asset('images/thumbnails/widget5.jpg')}}" alt="Image">
-                        </div>
-                        <div class="box-photo active">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="{{front_asset('images/thumbnails/widget1.jpg')}}" alt="Image">
-                        </div>
-                        <div class="box-photo">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="{{front_asset('images/thumbnails/widget6.jpg')}}" alt="Image">
-                        </div>
-
-                        <div class="box-photo">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="{{front_asset('images/thumbnails/widget7.jpg')}}" alt="Image">
-                        </div>
-                        <div class="box-photo">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="{{front_asset('images/thumbnails/widget3.jpg')}}" alt="Image">
-                        </div>
-                        <div class="box-photo">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="{{front_asset('images/thumbnails/widget8.jpg')}}" alt="Image">
-                        </div>
                     </div>
                 </div>
             </div>
