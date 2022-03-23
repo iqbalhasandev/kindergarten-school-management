@@ -26,3 +26,8 @@ Route::get('/faq', [HomeController::class, 'faq'])->name('home.faq');
 Route::get('/programs', [HomeController::class, 'programs'])->name('home.programs');
 Route::get('/blog', [HomeController::class, 'blog'])->name('home.blog');
 Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
