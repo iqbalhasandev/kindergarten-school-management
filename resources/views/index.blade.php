@@ -222,7 +222,7 @@
                     <div class="sc-about-3">
                         <div class="sc-about-feature fx wow fadeIn animated" data-wow-delay="0.3ms"
                             data-wow-duration="1500ms">
-                            <img src="{{ front_asset('images/pattern/about-us-3.png')}}" alt="Image">
+                            <img src="{{ storage_asset(setting('about-us.image'))}}" alt="Image">
                         </div>
                         <div class="sc-about-content">
                             <div class="title-heading">
@@ -235,20 +235,10 @@
                                         </g>
                                     </svg>
                                 </div>
-                                <h2 class="title clr-pri-2">We Learn Smart Way To
-                                    Build Bright Futute For
-                                    Your Children</h2>
+                                <h2 class="title clr-pri-2">{{setting('about-us.title')}}</h2>
                             </div>
-                            <p class="wrap f-mulish st-1">Amet consectetur adipiscin elitsed eiusmod tempor incididunt
-                                labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                                maecenas accumsan</p>
-                            <p class="wrap f-mulish st-2">Quis autem vel eum iure reprehenderit quiin ea voluptate velit
-                                esse quam nihil molestiae consequatur velillum</p>
-                            <div class="box-btn fx">
-                                <a href="about.html" class="fl-btn st-3">
-                                    <span class="inner">learn more Us</span>
-                                </a>
-                            </div>
+                            <p class="wrap f-mulish st-1">
+                                {!! setting('about-us.description') !!}
                         </div>
                     </div>
                 </div>
@@ -399,7 +389,8 @@
                         </div>
                         <div class="box-content box">
                             <div class="number-content clr-pri-1">
-                                <span class="number" data-speed="3000" data-to="5693" data-inviewport="yes">5693</span>+
+                                <span class="number" data-speed="3000" data-to="{{ setting('counter.student_enroll') }}"
+                                    data-inviewport="yes">{{ setting('counter.student_enroll') }}</span>+
                             </div>
                             <p class="clr-pri-1">Student Enroll</p>
                         </div>
@@ -421,7 +412,8 @@
                         </div>
                         <div class="box-content box">
                             <div class="number-content clr-pri-1">
-                                <span class="number" data-speed="3000" data-to="463" data-inviewport="yes">463</span>+
+                                <span class="number" data-speed="3000" data-to="{{ setting('counter.total_classes') }}"
+                                    data-inviewport="yes">{{ setting('counter.total_classes') }}</span>+
                             </div>
                             <p class="clr-pri-1">Total Classes</p>
                         </div>
@@ -443,7 +435,8 @@
                         </div>
                         <div class="box-content box">
                             <div class="number-content clr-pri-1">
-                                <span class="number" data-speed="3000" data-to="934" data-inviewport="yes">934</span>+
+                                <span class="number" data-speed="3000" data-to="{{ setting('counter.expert_teacher') }}"
+                                    data-inviewport="yes">{{ setting('counter.expert_teacher') }}</span>+
                             </div>
                             <p class="clr-pri-1">Expert Teacher</p>
                         </div>
@@ -465,7 +458,9 @@
                         </div>
                         <div class="box-content box">
                             <div class="number-content clr-pri-1">
-                                <span class="number" data-speed="3000" data-to="26" data-inviewport="yes">26</span>+
+                                <span class="number" data-speed="3000"
+                                    data-to="{{ setting('counter.years_experience') }}" data-inviewport="yes">{{
+                                    setting('counter.years_experience') }}</span>+
                             </div>
                             <p class="clr-pri-1">Years Experience</p>
                         </div>
@@ -508,8 +503,8 @@
                             <div class="owl-carousel owl-theme none dots-none">
                                 <div class="sc-employee wow fadeInUp animated" data-wow-delay="0.3ms"
                                     data-wow-duration="800ms">
-                                    <div class="box-feature"><img src="assets/images/common/sc-employee-1.jpg"
-                                            alt="Image">
+                                    <div class="box-feature"><img
+                                            src="{{ front_asset('images/common/sc-employee-1.jpg')}}" alt="Image">
                                     </div>
                                     <div class="box-content st-1">
                                         <h4 class="name"><a href="teacher-details.html" class="clr-pri-1">Patrick K.
@@ -520,8 +515,8 @@
 
                                 <div class="sc-employee wow fadeInUp animated" data-wow-delay="0.3ms"
                                     data-wow-duration="1000ms">
-                                    <div class="box-feature"><img src="assets/images/common/sc-employee-2.jpg"
-                                            alt="Image">
+                                    <div class="box-feature"><img
+                                            src="{{ front_asset('images/common/sc-employee-2.jpg')}}" alt="Image">
                                     </div>
                                     <div class="box-content st-2">
                                         <h4 class="name"><a href="teacher-details.html" class="clr-pri-1">Roderick M.
@@ -532,8 +527,8 @@
 
                                 <div class="sc-employee wow fadeInUp animated" data-wow-delay="0.3ms"
                                     data-wow-duration="1200ms">
-                                    <div class="box-feature"><img src="assets/images/common/sc-employee-3.jpg"
-                                            alt="Image">
+                                    <div class="box-feature"><img
+                                            src="{{ front_asset('images/common/sc-employee-3.jpg')}}" alt="Image">
                                     </div>
                                     <div class="box-content st-3">
                                         <h4 class="name"><a href="teacher-details.html" class="clr-pri-1">Frank T.
@@ -544,8 +539,8 @@
 
                                 <div class="sc-employee wow fadeInUp animated" data-wow-delay="0.3ms"
                                     data-wow-duration="1400ms">
-                                    <div class="box-feature"><img src="assets/images/common/sc-employee-4.jpg"
-                                            alt="Image">
+                                    <div class="box-feature"><img
+                                            src="{{ front_asset('images/common/sc-employee-4.jpg')}}" alt="Image">
                                     </div>
                                     <div class="box-content st-4">
                                         <h4 class="name"><a href="teacher-details.html" class="clr-pri-1">Scott M.
@@ -976,10 +971,10 @@
     </section>
 
     <section class="tf-section tf-sc-blog2">
-        <img class="feature-blog-1" src="assets/images/patternphoto/feauture-blog-1.png')}}" alt="Image">
-        <img class="feature-blog-2" src="assets/images/patternphoto/feauture-blog-2.png')}}" alt="Image">
-        <img class="feature-blog-3" src="assets/images/patternphoto/feauture-blog-3.png')}}" alt="Image">
-        <img class="feature-blog-4" src="assets/images/patternphoto/feauture-blog-4.png')}}" alt="Image">
+        <img class="feature-blog-1" src="{{ front_asset('images/patternphoto/feauture-blog-1.png')}}" alt="Image">
+        <img class="feature-blog-2" src="{{ front_asset('images/patternphoto/feauture-blog-2.png')}}" alt="Image">
+        <img class="feature-blog-3" src="{{ front_asset('images/patternphoto/feauture-blog-3.png')}}" alt="Image">
+        <img class="feature-blog-4" src="{{ front_asset('images/patternphoto/feauture-blog-4.png')}}" alt="Image">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -998,7 +993,7 @@
                             <h2 class="title clr-pri-2">Get Every Single Updates Latest News & Blog</h2>
                         </div>
                         <div class="heading-btn st-1">
-                            <a href="blog-single.html" class="fl-btn st-3">
+                            <a href="{{ route('home.blog') }}" class="fl-btn st-3">
                                 <span class="inner">view more news</span>
                             </a>
                         </div>
@@ -1007,7 +1002,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="sc-artice wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1200ms">
                         <div class="box-feature fx"><a href="blog-single.html"><img
-                                    src="assets/images/common/sc-article-1.jpg')}}" alt="Image"></a></div>
+                                    src="{{ front_asset('images/common/sc-article-1.jpg')}}" alt="Image"></a></div>
                         <div class="box-content">
                             <div class="meta-post">
                                 <ul class="fx">
@@ -1035,7 +1030,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="sc-artice wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1200ms">
                         <div class="box-feature fx"><a href="blog-single.html"><img
-                                    src="assets/images/common/sc-article-2.jpg')}}" alt="Image"></a></div>
+                                    src="{{ front_asset('images/common/sc-article-2.jpg')}}" alt="Image"></a></div>
                         <div class="box-content">
                             <div class="meta-post">
                                 <ul class="fx">
@@ -1063,7 +1058,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="sc-artice wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1200ms">
                         <div class="box-feature fx"><a href="blog-single.html"><img
-                                    src="assets/images/common/sc-article-3.jpg')}}" alt="Image"></a></div>
+                                    src="{{ front_asset('images/common/sc-article-3.jpg')}}" alt="Image"></a></div>
                         <div class="box-content">
                             <div class="meta-post">
                                 <ul class="fx">
