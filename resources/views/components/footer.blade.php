@@ -29,35 +29,27 @@
                     <div class="widget-footer">
                         <div class="widget widget-logo">
                             <div class="logo-bottom" id="logo-footer">
-                                <a href="index.html"><img src="{{ front_asset('images/logo/logofootert.png')}}"
-                                        alt="kinco"></a>
+                                <a href="{{ route('home') }}">
+                                    <img src="{{ storage_asset(setting('school-info.logo'))}}"> </a>
                             </div>
-                            <p class="wrap f-mulish">Sit amet consectetur adipiscing elit sed do eiusmod
-                                teminci idunt ut labore et dolore magna</p>
+                            <p class="wrap f-mulish">{{ setting('school-info.description') }}</p>
                             <div class="list-contact">
                                 <ul>
-                                    <li class="fx"><span><i class="far fa-map-marker-alt"></i> 55 Main
-                                            Street, New York</span></li>
-                                    <li class="fx"><a href="mailto:hotline@gmail.com"><i class="far fa-envelope"></i>
-                                            hotline@gmail.com</a></li>
-                                    <li class="fx"><a href="tel:012345678"><i class="fal fa-phone"></i> +012
-                                            (345) 678</a></li>
+                                    <li class="fx"><span><i class="far fa-map-marker-alt"></i>
+                                            {{ setting('school-info.address') }}
+                                        </span></li>
+                                    <li class="fx"><a href="mailto:{{
+                                            setting('school-info.mail')}}"><i class="far fa-envelope"></i> {{
+                                            setting('school-info.mail')}}</a></li>
+                                    <li class="fx"><a href="tel:{{setting('school-info.hotline')}}"><i
+                                                class="fal fa-phone"></i>
+                                            {{setting('school-info.hotline')}}</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="widget widget-business">
                             <div class="inner">
-                                <div class="op-time">
-                                    <h4 class="title-widget">opening hours</h4>
-                                    <ul>
-                                        <li><span class="f-mulish">Sunday - Friday</span></li>
-                                        <li><span class="f-mulish">08 am - 05 pm</span></li>
-                                    </ul>
-                                </div>
-                                <div class="cls-time">
-                                    <p>Every Satarday and Govt Holiday</p>
-                                    <h4 class="title-widget">closed</h4>
-                                </div>
+                                {!! setting('school-info.opening_day_and_hour') !!}
                             </div>
                         </div>
                         <div class="widget widget-link">

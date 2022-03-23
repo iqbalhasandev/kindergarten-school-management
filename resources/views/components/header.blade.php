@@ -5,7 +5,8 @@
                 <div class="top-bar-2 fx">
                     <div id="site-logo" class="clearfix">
                         <a href="index.html" class="logo st-2">
-                            <img src="{{front_asset('images/logo/logodark-2.png')}}" alt="Kinco">
+                            <img src="{{storage_asset(setting('site.logo'))}}">
+                            {{-- front_asset('images/logo/logodark-2.png') --}}
                         </a>
                     </div>
                     <div class="header-contact fx">
@@ -19,7 +20,7 @@
                             </svg>
                             <ul>
                                 <li class="clr-pri-4">School Location</li>
-                                <li class="clr-pri-2">55 Main Street, New York</li>
+                                <li class="clr-pri-2">{{ setting('school-info.address','-') }}</li>
                             </ul>
                         </div>
 
@@ -33,38 +34,10 @@
                             </svg>
                             <ul>
                                 <li class="clr-pri-4">Hotline</li>
-                                <li class="clr-pri-2">+012 (345) 678</li>
+                                <li class="clr-pri-2">{{ setting('school-info.hotline','-') }}</li>
                             </ul>
                         </div>
-                        <a href="#" class="menu-bar-right header-menu">
-                            <svg data-name="Hero Area" xmlns="http://www.w3.org/2000/svg" width="58" height="58"
-                                viewBox="0 0 58 58">
-                                <defs>
-                                    <style>
-                                        .cls-1 {
-                                            fill: #b250fe;
-                                        }
 
-                                        .cls-1,
-                                        .cls-2 {
-                                            fill-rule: evenodd;
-                                        }
-
-                                        .cls-2 {
-                                            fill: #fff;
-                                        }
-                                    </style>
-                                </defs>
-                                <g data-name="Menu Area">
-                                    <g id="Menu_bar" data-name="Menu bar">
-                                        <path id="Bg" class="cls-1"
-                                            d="M7.853,2.283c14.9-3.89,29.969-1.4,43.467.819a7.923,7.923,0,0,1,5.735,5.422c3.111,14.141-.428,28.636-1.166,42.981a5.157,5.157,0,0,1-4.773,4.875c-13.49.568-23.463,3.285-41.787,0.9C5.948,56.807,2.348,54.2,1.9,51.7-0.683,37.877.2,23.508,2.194,8.757a8.71,8.71,0,0,1,5.66-6.473" />
-                                        <path id="Bar" class="cls-2"
-                                            d="M16,17H42a2,2,0,0,1,0,4H16A2,2,0,0,1,16,17Zm0,10H42a2,2,0,0,1,0,4H16A2,2,0,0,1,16,27Zm0,10H42a2,2,0,0,1,0,4H16A2,2,0,0,1,16,37Z" />
-                                    </g>
-                                </g>
-                            </svg>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -74,33 +47,24 @@
                     <div class="nav-wrap">
                         <nav id="mainnav" class="mainnav st-2">
                             <ul class="menu">
-                                <li class="menu-item">
-                                    <a href="about.html">Home</a>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a>About</a>
+                                {{-- {{ dd(json_decode(menu('Front Nav','_json'))) }} --}}
+                                @foreach (json_decode(menu('Front Nav','_json')) as $menu)
+                                <li class="{{ count($menu->children)>0?'menu-item-has-children':'menu-item' }}">
+                                    <a href="{{ $menu->url }}" target="{{ $menu->target }}">
+                                        {{ $menu->title }}
+                                    </a>
+                                    @if (count($menu->children)>0)
                                     <ul class="sub-menu">
-                                        <li class="inner"><a href="{{ route('home.teachers') }}">Teacher</a></li>
-                                        <li class="inner"><a href="{{ route('home.classes') }}">Classes</a></li>
-                                        <li class="inner"><a href="{{ route('home.events') }}">Events</a></li>
-
-
-                                        <li><a href="{{ route('home.academic-calendar') }}">Academic Calendar</a></li>
-                                        <li><a href="{{ route('home.testimonials') }}">testimonials</a></li>
-                                        <li><a href="{{ route('home.gallery') }}">gallery</a></li>
-                                        <li><a href="{{ route('home.pricing') }}">pricing</a></li>
-                                        <li><a href="{{ route('home.faq') }}">Faq</a></li>
+                                        @foreach ($menu->children as $child)
+                                        <li class="inner"><a href="{{ $child->url }}" target="{{ $child->target }}">
+                                                {{ $child->title }}
+                                            </a>
+                                        </li>
+                                        @endforeach
                                     </ul>
+                                    @endif
                                 </li>
-                                <li class="menu-item">
-                                    <a href="{{ route('home.programs') }}">Programs</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="{{ route('home.blog') }}">BLOG</a>
-                                </li>
-                                <li class="inner">
-                                    <a href="{{ route('home.contact') }}">CONTACTS</a>
-                                </li>
+                                @endforeach
                             </ul>
                             <!-- /.menu -->
                         </nav>
@@ -108,37 +72,5 @@
                 </div>
             </div>
         </div>
-    </div>
-
-
-    <div id="sidebar2" class="side-menu__block">
-        <div class="side-menu__block-overlay custom-cursor__overlay"></div>
-
-        <div class="inner-sidebar side-menu__block-inner fl-st-1">
-            <div class="side-menu__top justify-content-end">
-                <a href="#" class="side-menu__toggler side-menu__close-btn"><img
-                        src="{{front_asset('images/common/close.png')}}" alt="images"></a>
-            </div>
-            <div class="wrap">
-                <div class="widget widget-quote">
-                    <div class="box-feature">
-                        <div class="inner">
-                            <img src="{{front_asset('images/post/post-quotes2.jpg')}}" alt="Image">
-                            <div class="box-icon jus-ali-ct">
-                                <i class="far fa-quote-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-content">
-                        <h5 class="author clr-pri-2">Patrick D. Smith</h5>
-                        <p class="wrap f-rubik">
-                            Sit amet consectetur adipiscing elit sed do eiusmod tempor didunt ut labore et
-                            dolore magna
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/inner-sidebar-->
     </div>
 </header>
