@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 23, 2022 at 09:41 AM
+-- Generation Time: Mar 25, 2022 at 10:26 AM
 -- Server version: 8.0.27
 -- PHP Version: 8.1.0
 
@@ -32,8 +32,8 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `parent_id` int UNSIGNED DEFAULT NULL,
   `order` int NOT NULL DEFAULT '1',
-  `name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -59,20 +59,20 @@ DROP TABLE IF EXISTS `data_rows`;
 CREATE TABLE IF NOT EXISTS `data_rows` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `data_type_id` int UNSIGNED NOT NULL,
-  `field` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `field` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `required` tinyint(1) NOT NULL DEFAULT '0',
   `browse` tinyint(1) NOT NULL DEFAULT '1',
   `read` tinyint(1) NOT NULL DEFAULT '1',
   `edit` tinyint(1) NOT NULL DEFAULT '1',
   `add` tinyint(1) NOT NULL DEFAULT '1',
   `delete` tinyint(1) NOT NULL DEFAULT '1',
-  `details` text COLLATE utf8mb4_unicode_ci,
+  `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `order` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `data_rows_data_type_id_foreign` (`data_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `data_rows`
@@ -133,7 +133,56 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (52, 6, 'status', 'select_dropdown', 'Status', 1, 1, 1, 1, 1, 1, '{\"default\":\"INACTIVE\",\"options\":{\"INACTIVE\":\"INACTIVE\",\"ACTIVE\":\"ACTIVE\"}}', 9),
 (53, 6, 'created_at', 'timestamp', 'Created At', 1, 1, 1, 0, 0, 0, NULL, 10),
 (54, 6, 'updated_at', 'timestamp', 'Updated At', 1, 0, 0, 0, 0, 0, NULL, 11),
-(55, 6, 'image', 'image', 'Page Image', 0, 1, 1, 1, 1, 1, NULL, 12);
+(55, 6, 'image', 'image', 'Page Image', 0, 1, 1, 1, 1, 1, NULL, 12),
+(56, 7, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(57, 7, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, '{}', 2),
+(58, 7, 'description', 'rich_text_box', 'Description', 1, 1, 1, 1, 1, 1, '{}', 3),
+(59, 7, 'image', 'image', 'Image', 1, 1, 1, 1, 1, 1, '{}', 4),
+(60, 7, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 1, '{}', 5),
+(61, 7, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(62, 8, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(63, 8, 'title', 'text', 'Title', 0, 1, 1, 1, 1, 1, '{}', 2),
+(64, 8, 'image', 'media_picker', 'Image', 1, 1, 1, 1, 1, 1, '{}', 3),
+(65, 8, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 4),
+(66, 8, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
+(67, 9, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(68, 9, 'title', 'text', 'Title', 0, 1, 1, 1, 1, 1, '{}', 2),
+(69, 9, 'price', 'text', 'Price', 0, 1, 1, 1, 1, 1, '{}', 3),
+(70, 9, 'seat', 'text', 'Seat', 0, 1, 1, 1, 1, 1, '{}', 4),
+(71, 9, 'time', 'text', 'Time', 0, 1, 1, 1, 1, 1, '{}', 5),
+(72, 9, 'days', 'text', 'Days', 0, 1, 1, 1, 1, 1, '{}', 6),
+(73, 9, 'lessions', 'text', 'Lessions', 0, 1, 1, 1, 1, 1, '{}', 7),
+(74, 9, 'language', 'text', 'Language', 0, 1, 1, 1, 1, 1, '{}', 8),
+(75, 9, 'user_name', 'text', 'User Name', 0, 1, 1, 1, 1, 1, '{}', 9),
+(76, 9, 'user_designation', 'text', 'User Designation', 0, 1, 1, 1, 1, 1, '{}', 10),
+(77, 9, 'user_image', 'image', 'User Image', 0, 1, 1, 1, 1, 1, '{}', 11),
+(78, 9, 'image', 'image', 'Image', 0, 1, 1, 1, 1, 1, '{}', 12),
+(79, 9, 'description', 'text', 'Description', 0, 1, 1, 1, 1, 1, '{}', 13),
+(80, 9, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 14),
+(81, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 15),
+(82, 10, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(83, 10, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2),
+(84, 10, 'image', 'image', 'Image', 1, 1, 1, 1, 1, 1, '{}', 3),
+(85, 10, 'designation', 'text', 'Designation', 1, 1, 1, 1, 1, 1, '{}', 4),
+(86, 10, 'quote', 'text_area', 'Quote', 1, 1, 1, 1, 1, 1, '{}', 5),
+(87, 10, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 6),
+(88, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(89, 11, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(90, 11, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2),
+(91, 11, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, '{}', 3),
+(92, 11, 'facebook', 'text', 'Facebook', 1, 1, 1, 1, 1, 1, '{}', 4),
+(93, 11, 'twitter', 'text', 'Twitter', 1, 1, 1, 1, 1, 1, '{}', 5),
+(94, 11, 'linkedin', 'text', 'Linkedin', 1, 1, 1, 1, 1, 1, '{}', 6),
+(95, 11, 'designation', 'text', 'Designation', 1, 1, 1, 1, 1, 1, '{}', 7),
+(96, 11, 'bio', 'rich_text_box', 'Bio', 1, 1, 1, 1, 1, 1, '{}', 8),
+(97, 11, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 1, '{}', 9),
+(98, 11, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 10),
+(99, 12, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(100, 12, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, '{}', 2),
+(101, 12, 'description', 'text', 'Description', 1, 1, 1, 1, 1, 1, '{}', 3),
+(102, 12, 'image', 'image', 'Image', 1, 1, 1, 1, 1, 1, '{}', 4),
+(103, 12, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 1, '{}', 5),
+(104, 12, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6);
 
 -- --------------------------------------------------------
 
@@ -144,24 +193,24 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 DROP TABLE IF EXISTS `data_types`;
 CREATE TABLE IF NOT EXISTS `data_types` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name_singular` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name_plural` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `icon` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `model_name` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `policy_name` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `controller` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name_singular` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name_plural` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `model_name` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `policy_name` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `controller` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `generate_permissions` tinyint(1) NOT NULL DEFAULT '0',
   `server_side` tinyint NOT NULL DEFAULT '0',
-  `details` text COLLATE utf8mb4_unicode_ci,
+  `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `data_types_name_unique` (`name`),
   UNIQUE KEY `data_types_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `data_types`
@@ -173,7 +222,30 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2022-03-23 02:56:31', '2022-03-23 02:56:31'),
 (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2022-03-23 02:56:32', '2022-03-23 02:56:32'),
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2022-03-23 02:56:33', '2022-03-23 02:56:33');
+(6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
+(7, 'discovers', 'discovers', 'Discover', 'Discovers', NULL, 'App\\Models\\Discover', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2022-03-23 10:41:37', '2022-03-23 10:41:37'),
+(8, 'galleries', 'galleries', 'Gallery', 'Galleries', NULL, 'App\\Models\\Gallery', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2022-03-23 10:42:19', '2022-03-23 10:42:19'),
+(9, 'student_classes', 'student-classes', 'Student Class', 'Student Classes', NULL, 'App\\Models\\StudentClass', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2022-03-23 10:43:28', '2022-03-23 10:43:28'),
+(10, 'testimonials', 'testimonials', 'Testimonial', 'Testimonials', NULL, 'App\\Models\\Testimonial', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2022-03-23 10:44:06', '2022-03-23 10:44:06'),
+(11, 'teachers', 'teachers', 'Teacher', 'Teachers', NULL, 'App\\Models\\Teacher', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2022-03-23 10:44:47', '2022-03-23 10:44:47'),
+(12, 'services', 'services', 'Service', 'Services', NULL, 'App\\Models\\Service', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2022-03-23 10:45:12', '2022-03-23 10:45:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `discovers`
+--
+
+DROP TABLE IF EXISTS `discovers`;
+CREATE TABLE IF NOT EXISTS `discovers` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -184,14 +256,30 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 DROP TABLE IF EXISTS `failed_jobs`;
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `galleries`
+--
+
+DROP TABLE IF EXISTS `galleries`;
+CREATE TABLE IF NOT EXISTS `galleries` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
@@ -228,20 +316,20 @@ DROP TABLE IF EXISTS `menu_items`;
 CREATE TABLE IF NOT EXISTS `menu_items` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `menu_id` int UNSIGNED DEFAULT NULL,
-  `title` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `url` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `target` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '_self',
-  `icon_class` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `color` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `target` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '_self',
+  `icon_class` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `color` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `parent_id` int DEFAULT NULL,
   `order` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `route` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parameters` text COLLATE utf8mb4_unicode_ci,
+  `route` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parameters` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `menu_items_menu_id_foreign` (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `menu_items`
@@ -273,7 +361,13 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (23, 2, 'Faq', '', '_self', NULL, '#000000', 15, 8, '2022-03-23 03:14:52', '2022-03-23 03:15:55', 'home.faq', NULL),
 (24, 2, 'Programs', '', '_self', NULL, '#000000', NULL, 3, '2022-03-23 03:15:07', '2022-03-23 03:15:55', 'home.programs', NULL),
 (25, 2, 'Blog', '', '_self', NULL, '#000000', NULL, 4, '2022-03-23 03:15:27', '2022-03-23 03:15:55', 'home.blog', NULL),
-(26, 2, 'CONTACTS', '', '_self', NULL, '#000000', NULL, 5, '2022-03-23 03:15:40', '2022-03-23 03:15:55', 'home.contact', NULL);
+(26, 2, 'CONTACTS', '', '_self', NULL, '#000000', NULL, 5, '2022-03-23 03:15:40', '2022-03-23 03:15:55', 'home.contact', NULL),
+(27, 1, 'Discovers', '', '_self', NULL, NULL, NULL, 15, '2022-03-23 10:41:38', '2022-03-23 10:41:38', 'voyager.discovers.index', NULL),
+(28, 1, 'Galleries', '', '_self', NULL, NULL, NULL, 16, '2022-03-23 10:42:19', '2022-03-23 10:42:19', 'voyager.galleries.index', NULL),
+(29, 1, 'Student Classes', '', '_self', NULL, NULL, NULL, 17, '2022-03-23 10:43:28', '2022-03-23 10:43:28', 'voyager.student-classes.index', NULL),
+(30, 1, 'Testimonials', '', '_self', NULL, NULL, NULL, 18, '2022-03-23 10:44:06', '2022-03-23 10:44:06', 'voyager.testimonials.index', NULL),
+(31, 1, 'Teachers', '', '_self', NULL, NULL, NULL, 19, '2022-03-23 10:44:47', '2022-03-23 10:44:47', 'voyager.teachers.index', NULL),
+(32, 1, 'Services', '', '_self', NULL, NULL, NULL, 20, '2022-03-23 10:45:12', '2022-03-23 10:45:12', 'voyager.services.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -284,10 +378,10 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `migration` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `migrations`
@@ -321,7 +415,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (25, '2016_01_01_000000_create_pages_table', 2),
 (26, '2016_01_01_000000_create_posts_table', 2),
 (27, '2016_02_15_204651_create_categories_table', 2),
-(28, '2017_04_11_000000_alter_post_nullable_fields_table', 2);
+(28, '2017_04_11_000000_alter_post_nullable_fields_table', 2),
+(29, '2022_03_23_160958_create_student_classes_table', 3),
+(30, '2022_03_23_161949_create_discovers_table', 3),
+(31, '2022_03_23_162144_create_teachers_table', 4),
+(32, '2022_03_23_162430_create_galleries_table', 4),
+(33, '2022_03_23_162507_create_services_table', 4),
+(34, '2022_03_23_162821_create_testimonials_table', 4);
 
 -- --------------------------------------------------------
 
@@ -333,14 +433,14 @@ DROP TABLE IF EXISTS `pages`;
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `author_id` int NOT NULL,
-  `title` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `excerpt` text COLLATE utf8mb4_unicode_ci,
-  `body` text COLLATE utf8mb4_unicode_ci,
-  `image` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_description` text COLLATE utf8mb4_unicode_ci,
-  `meta_keywords` text COLLATE utf8mb4_unicode_ci,
-  `status` enum('ACTIVE','INACTIVE') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'INACTIVE',
+  `title` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `excerpt` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `image` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `meta_keywords` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `status` enum('ACTIVE','INACTIVE') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'INACTIVE',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -362,8 +462,8 @@ INSERT INTO `pages` (`id`, `author_id`, `title`, `excerpt`, `body`, `image`, `sl
 
 DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE IF NOT EXISTS `password_resets` (
-  `email` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   KEY `password_resets_email_index` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
@@ -383,7 +483,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `permissions_key_index` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `permissions`
@@ -429,7 +529,37 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (37, 'read_pages', 'pages', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
 (38, 'edit_pages', 'pages', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
 (39, 'add_pages', 'pages', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(40, 'delete_pages', 'pages', '2022-03-23 02:56:33', '2022-03-23 02:56:33');
+(40, 'delete_pages', 'pages', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
+(41, 'browse_discovers', 'discovers', '2022-03-23 10:41:37', '2022-03-23 10:41:37'),
+(42, 'read_discovers', 'discovers', '2022-03-23 10:41:37', '2022-03-23 10:41:37'),
+(43, 'edit_discovers', 'discovers', '2022-03-23 10:41:37', '2022-03-23 10:41:37'),
+(44, 'add_discovers', 'discovers', '2022-03-23 10:41:37', '2022-03-23 10:41:37'),
+(45, 'delete_discovers', 'discovers', '2022-03-23 10:41:37', '2022-03-23 10:41:37'),
+(46, 'browse_galleries', 'galleries', '2022-03-23 10:42:19', '2022-03-23 10:42:19'),
+(47, 'read_galleries', 'galleries', '2022-03-23 10:42:19', '2022-03-23 10:42:19'),
+(48, 'edit_galleries', 'galleries', '2022-03-23 10:42:19', '2022-03-23 10:42:19'),
+(49, 'add_galleries', 'galleries', '2022-03-23 10:42:19', '2022-03-23 10:42:19'),
+(50, 'delete_galleries', 'galleries', '2022-03-23 10:42:19', '2022-03-23 10:42:19'),
+(51, 'browse_student_classes', 'student_classes', '2022-03-23 10:43:28', '2022-03-23 10:43:28'),
+(52, 'read_student_classes', 'student_classes', '2022-03-23 10:43:28', '2022-03-23 10:43:28'),
+(53, 'edit_student_classes', 'student_classes', '2022-03-23 10:43:28', '2022-03-23 10:43:28'),
+(54, 'add_student_classes', 'student_classes', '2022-03-23 10:43:28', '2022-03-23 10:43:28'),
+(55, 'delete_student_classes', 'student_classes', '2022-03-23 10:43:28', '2022-03-23 10:43:28'),
+(56, 'browse_testimonials', 'testimonials', '2022-03-23 10:44:06', '2022-03-23 10:44:06'),
+(57, 'read_testimonials', 'testimonials', '2022-03-23 10:44:06', '2022-03-23 10:44:06'),
+(58, 'edit_testimonials', 'testimonials', '2022-03-23 10:44:06', '2022-03-23 10:44:06'),
+(59, 'add_testimonials', 'testimonials', '2022-03-23 10:44:06', '2022-03-23 10:44:06'),
+(60, 'delete_testimonials', 'testimonials', '2022-03-23 10:44:06', '2022-03-23 10:44:06'),
+(61, 'browse_teachers', 'teachers', '2022-03-23 10:44:47', '2022-03-23 10:44:47'),
+(62, 'read_teachers', 'teachers', '2022-03-23 10:44:47', '2022-03-23 10:44:47'),
+(63, 'edit_teachers', 'teachers', '2022-03-23 10:44:47', '2022-03-23 10:44:47'),
+(64, 'add_teachers', 'teachers', '2022-03-23 10:44:47', '2022-03-23 10:44:47'),
+(65, 'delete_teachers', 'teachers', '2022-03-23 10:44:47', '2022-03-23 10:44:47'),
+(66, 'browse_services', 'services', '2022-03-23 10:45:12', '2022-03-23 10:45:12'),
+(67, 'read_services', 'services', '2022-03-23 10:45:12', '2022-03-23 10:45:12'),
+(68, 'edit_services', 'services', '2022-03-23 10:45:12', '2022-03-23 10:45:12'),
+(69, 'add_services', 'services', '2022-03-23 10:45:12', '2022-03-23 10:45:12'),
+(70, 'delete_services', 'services', '2022-03-23 10:45:12', '2022-03-23 10:45:12');
 
 -- --------------------------------------------------------
 
@@ -490,7 +620,37 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (37, 1),
 (38, 1),
 (39, 1),
-(40, 1);
+(40, 1),
+(41, 1),
+(42, 1),
+(43, 1),
+(44, 1),
+(45, 1),
+(46, 1),
+(47, 1),
+(48, 1),
+(49, 1),
+(50, 1),
+(51, 1),
+(52, 1),
+(53, 1),
+(54, 1),
+(55, 1),
+(56, 1),
+(57, 1),
+(58, 1),
+(59, 1),
+(60, 1),
+(61, 1),
+(62, 1),
+(63, 1),
+(64, 1),
+(65, 1),
+(66, 1),
+(67, 1),
+(68, 1),
+(69, 1),
+(70, 1);
 
 -- --------------------------------------------------------
 
@@ -501,11 +661,11 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 DROP TABLE IF EXISTS `personal_access_tokens`;
 CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
-  `tokenable_type` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint UNSIGNED NOT NULL,
-  `name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -525,15 +685,15 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `author_id` int NOT NULL,
   `category_id` int DEFAULT NULL,
-  `title` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `seo_title` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seo_title` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `excerpt` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `meta_description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `meta_keywords` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `status` enum('PUBLISHED','DRAFT','PENDING') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'DRAFT',
+  `status` enum('PUBLISHED','DRAFT','PENDING') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'DRAFT',
   `featured` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -579,22 +739,39 @@ INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `services`
+--
+
+DROP TABLE IF EXISTS `services`;
+CREATE TABLE IF NOT EXISTS `services` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `settings`
 --
 
 DROP TABLE IF EXISTS `settings`;
 CREATE TABLE IF NOT EXISTS `settings` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `key` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `details` text COLLATE utf8mb4_unicode_ci,
-  `type` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `type` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `order` int NOT NULL DEFAULT '1',
-  `group` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `group` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `settings_key_unique` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `settings`
@@ -617,7 +794,79 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 (14, 'school-info.opening_day_and_hour', 'Opening Day and Hour', '<div class=\"op-time\">\r\n<h4 class=\"title-widget\">opening hours</h4>\r\n<ul>\r\n<li><span class=\"f-mulish\">Sunday - Friday</span></li>\r\n<li><span class=\"f-mulish\">08 am - 05 pm</span></li>\r\n</ul>\r\n</div>\r\n<div class=\"cls-time\">\r\n<p>Every Satarday and Govt Holiday</p>\r\n<h4 class=\"title-widget\">closed</h4>\r\n</div>', NULL, 'rich_text_box', 10, 'School Info'),
 (15, 'school-info.logo', 'Logo', 'settings\\March2022\\WNSCD2C6HisVdIrz22b9.png', NULL, 'image', 11, 'School Info'),
 (16, 'school-info.description', 'Description', NULL, NULL, 'text_area', 12, 'School Info'),
-(17, 'school-info.mail', 'Mail', 'demo-mail@domain.com', NULL, 'text', 9, 'School Info');
+(17, 'school-info.mail', 'Mail', 'demo-mail@domain.com', NULL, 'text', 9, 'School Info'),
+(18, 'counter.student_enroll', 'Student Enroll', '5693', NULL, 'text', 13, 'Counter'),
+(19, 'counter.total_classes', 'Total Classes', '463', NULL, 'text', 14, 'Counter'),
+(20, 'counter.expert_teacher', 'Expert Teacher', '934', NULL, 'text', 15, 'Counter'),
+(21, 'counter.years_experience', 'Years Experience', '26', NULL, 'text', 16, 'Counter'),
+(22, 'about-us.title', 'Title', '', NULL, 'text', 17, 'About Us'),
+(23, 'about-us.description', 'Description', '', NULL, 'rich_text_box', 18, 'About Us'),
+(24, 'about-us.image', 'Image', '', NULL, 'image', 19, 'About Us');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_classes`
+--
+
+DROP TABLE IF EXISTS `student_classes`;
+CREATE TABLE IF NOT EXISTS `student_classes` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seat` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `time` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `days` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `lessions` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `language` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_name` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_designation` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_image` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teachers`
+--
+
+DROP TABLE IF EXISTS `teachers`;
+CREATE TABLE IF NOT EXISTS `teachers` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `facebook` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `twitter` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `linkedin` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `designation` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bio` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `testimonials`
+--
+
+DROP TABLE IF EXISTS `testimonials`;
+CREATE TABLE IF NOT EXISTS `testimonials` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `designation` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quote` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -628,52 +877,16 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 DROP TABLE IF EXISTS `translations`;
 CREATE TABLE IF NOT EXISTS `translations` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `table_name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `column_name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `table_name` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `column_name` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `foreign_key` int UNSIGNED NOT NULL,
-  `locale` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `locale` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `translations_table_name_column_name_foreign_key_locale_unique` (`table_name`,`column_name`,`foreign_key`,`locale`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `translations`
---
-
-INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `locale`, `value`, `created_at`, `updated_at`) VALUES
-(1, 'data_types', 'display_name_singular', 5, 'pt', 'Post', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(2, 'data_types', 'display_name_singular', 6, 'pt', 'Página', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(3, 'data_types', 'display_name_singular', 1, 'pt', 'Utilizador', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(4, 'data_types', 'display_name_singular', 4, 'pt', 'Categoria', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(5, 'data_types', 'display_name_singular', 2, 'pt', 'Menu', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(6, 'data_types', 'display_name_singular', 3, 'pt', 'Função', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(7, 'data_types', 'display_name_plural', 5, 'pt', 'Posts', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(8, 'data_types', 'display_name_plural', 6, 'pt', 'Páginas', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(9, 'data_types', 'display_name_plural', 1, 'pt', 'Utilizadores', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(10, 'data_types', 'display_name_plural', 4, 'pt', 'Categorias', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(11, 'data_types', 'display_name_plural', 2, 'pt', 'Menus', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(12, 'data_types', 'display_name_plural', 3, 'pt', 'Funções', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(13, 'categories', 'slug', 1, 'pt', 'categoria-1', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(14, 'categories', 'name', 1, 'pt', 'Categoria 1', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(15, 'categories', 'slug', 2, 'pt', 'categoria-2', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(16, 'categories', 'name', 2, 'pt', 'Categoria 2', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(17, 'pages', 'title', 1, 'pt', 'Olá Mundo', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(18, 'pages', 'slug', 1, 'pt', 'ola-mundo', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(19, 'pages', 'body', 1, 'pt', '<p>Olá Mundo. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\r\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(20, 'menu_items', 'title', 1, 'pt', 'Painel de Controle', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(21, 'menu_items', 'title', 2, 'pt', 'Media', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(22, 'menu_items', 'title', 12, 'pt', 'Publicações', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(23, 'menu_items', 'title', 3, 'pt', 'Utilizadores', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(24, 'menu_items', 'title', 11, 'pt', 'Categorias', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(25, 'menu_items', 'title', 13, 'pt', 'Páginas', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(26, 'menu_items', 'title', 4, 'pt', 'Funções', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(27, 'menu_items', 'title', 5, 'pt', 'Ferramentas', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(28, 'menu_items', 'title', 6, 'pt', 'Menus', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(29, 'menu_items', 'title', 7, 'pt', 'Base de dados', '2022-03-23 02:56:33', '2022-03-23 02:56:33'),
-(30, 'menu_items', 'title', 10, 'pt', 'Configurações', '2022-03-23 02:56:33', '2022-03-23 02:56:33');
 
 -- --------------------------------------------------------
 
@@ -724,31 +937,6 @@ CREATE TABLE IF NOT EXISTS `user_roles` (
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `categories`
---
-ALTER TABLE `categories`
-  ADD CONSTRAINT `categories_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `data_rows`
---
-ALTER TABLE `data_rows`
-  ADD CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `menu_items`
---
-ALTER TABLE `menu_items`
-  ADD CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `permission_role`
---
-ALTER TABLE `permission_role`
-  ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `users`
